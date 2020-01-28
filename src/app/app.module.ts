@@ -6,25 +6,37 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AssignePage } from "../pages/assigne/assigne";
+import { AssignorPage } from "../pages/assignor/assignor";
+import { IonicStorageModule } from '@ionic/storage';
+import { CalendarModule } from "ion2-calendar";
+import { Toast } from "../toast";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AssignePage,
+    AssignorPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CalendarModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AssignePage,
+    AssignorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Toast,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
